@@ -16,7 +16,7 @@ $vodConfig->setSk(SK);
 $vodConfig->setProjectId(PID);
 $vodClient = new VodClient($vodConfig);
 $req = new QueryCategoryReq();
-$req->setId(22803);
+$req->setId(87522);
 
 $rsp = $vodClient->queryAssetCategory($req);
 echo $rsp->getBody();

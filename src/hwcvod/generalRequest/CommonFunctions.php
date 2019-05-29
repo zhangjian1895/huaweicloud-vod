@@ -6,8 +6,7 @@ namespace hwcvod\generalRequest;
  */
 use hwcvod\exception\VodException;
 
-class CommonFunctions
-{
+class CommonFunctions{
     /**
      * 公共HTTP请求
      * @param $url
@@ -18,8 +17,7 @@ class CommonFunctions
      * @return HttpResponse
      * @throws VodException
      */
-    public static function http($url, $params, $method = 'GET', $header = array(), $timeout = 10)
-    {
+    public static function http($url, $params, $method = 'GET', $header = array(), $timeout = 10){
         // POST 提交方式的传入 $set_params 必须是字符串形式
         $opts = array(
             CURLOPT_TIMEOUT => $timeout,
@@ -28,6 +26,7 @@ class CommonFunctions
             CURLOPT_HEADER => true,
             CURLOPT_HTTPHEADER => self::curlHeaders($header)
         );
+
         // 是否开启代理
         if (ENABLE_HTTP_PROXY) {
             $opts[CURLOPT_PROXYAUTH] = CURLAUTH_BASIC;
@@ -35,6 +34,7 @@ class CommonFunctions
             $opts[CURLOPT_PROXYPORT] = HTTP_PROXY_PORT;
             $opts[CURLOPT_PROXYTYPE] = CURLPROXY_HTTP;
         }
+
         // 关闭https认证
         if (strlen($url) > 5 && strtolower(substr($url, 0, 5)) == "https") {
             $opts[CURLOPT_SSL_VERIFYPEER] = false;
@@ -97,14 +97,14 @@ class CommonFunctions
         $httpResponse = new HttpResponse();
         $httpResponse->setStatus(curl_getinfo($ch, CURLINFO_HTTP_CODE));
         $httpResponse->setHeader(substr($data, 0, $headerSize));
-        $httpResponse->setBody(json_encode(json_decode(substr($data, $headerSize)),
-            JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
+        $httpResponse->setBody(json_encode(json_decode(substr($data, $headerSize)), JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
 
         if (curl_errno($ch)) {
             throw new VodException("ErrorCode: " . curl_errno($ch), "ErrorMessage:" . curl_error($ch));
         }
 
         curl_close($ch);
+
         return $httpResponse;
     }
 
@@ -113,8 +113,7 @@ class CommonFunctions
      * @param $headers
      * @return array
      */
-    public static function curlHeaders($headers)
-    {
+    public static function curlHeaders($headers){
         $header = array();
         foreach ($headers as $key => $value) {
             array_push($header, strtolower($key) . ':' . trim($value));
@@ -122,8 +121,7 @@ class CommonFunctions
         return $header;
     }
 
-    static function escape($string)
-    {
+    public static function escape($string){
         $entities = array('+', "%7E");
         $replacements = array('%20', "~");
         return str_replace($entities, $replacements, urlencode($string));

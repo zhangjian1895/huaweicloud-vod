@@ -72,13 +72,11 @@ class SummaryService{
         return null;
     }
 
-
     /**
      * 查询TopN视频信息
      * @param QueryTopStatReq $queryTopStatReq
      * @param VodClient $vodClient
      * @return HttpResponse|null
-     * @throws Exception
      */
     public function queryTopStat(QueryTopStatReq $queryTopStatReq, VodClient $vodClient)
     {

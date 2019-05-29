@@ -1,7 +1,7 @@
 <?php
 namespace hwcvod\vod\model;
 
-use  hwcvod\exception\VodException;
+use hwcvod\exception\VodException;
 
 class CreateDomainAuthInfoReq extends BaseRequest {
 
@@ -144,13 +144,13 @@ class CreateDomainAuthInfoReq extends BaseRequest {
                 {
                     throw new VodException('VOD.100011001', 'domainName is invalid');
                 }
-            } catch (Exception $e) {
+            } catch (VodException $e) {
                 throw new VodException('VOD.100011001', "originalUrl is invalid" );
             }
         }
     }
 
-    public function validate()
-    {
+    public function validate(){
+
     }
 }

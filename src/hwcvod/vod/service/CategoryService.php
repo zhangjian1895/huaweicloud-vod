@@ -91,12 +91,12 @@ class CategoryService{
         $authAkSkRequest->setRequestUrl();
 
         try {
-            $response = CommonFunctions::http($authAkSkRequest->getRequestUrl(), $authAkSkRequest->getQuery(),
-                $authAkSkRequest->getMethod(), $authAkSkRequest->getHeaders());
+            $response = CommonFunctions::http($authAkSkRequest->getRequestUrl(), $authAkSkRequest->getQuery(), $authAkSkRequest->getMethod(), $authAkSkRequest->getHeaders());
             return $response;
         } catch (VodException $e) {
             echo $e->getErrorMessage();
         }
+
         return null;
     }
 

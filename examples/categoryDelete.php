@@ -15,8 +15,9 @@ $vodConfig->setAk(AK);
 $vodConfig->setSk(SK);
 $vodConfig->setProjectId(PID);
 $vodClient = new VodClient($vodConfig);
+
 $req = new DeleteCategoryReq();
-$req->setId(87519);
+$req->setId(87529);
 
 $rsp = $vodClient->deleteAssetCategory($req);
 echo $rsp->getBody();

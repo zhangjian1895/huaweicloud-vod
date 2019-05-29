@@ -216,7 +216,7 @@ class VodClient{
     /**
      * 根据域名设置防盗链后，调用该接口获取带有鉴权信息的URL
      * @param CreateDomainAuthInfoReq $req
-     * @return \vod\model\CreateAuthInfoRsp
+     * @return \hwcvod\vod\model\CreateAuthInfoRsp
      */
     public function createDomainAuthInfoUrl(CreateDomainAuthInfoReq $req){
         return DomainUrlAuthService::getInstance()->createAuthInfoUrl($req, $this);
@@ -277,7 +277,7 @@ class VodClient{
     /**
      * 查询cdn信息
      * @param QueryStatReq $req
-     * @return \generalRequest\HttpResponse|null
+     * @return \hwcvod\generalRequest\HttpResponse|null
      */
     public function queryCdnStat(QueryStatReq $req){
         return SummaryService::getInstance()->queryCdnStat($req,$this);
@@ -286,17 +286,16 @@ class VodClient{
     /**
      * 查询源站信息
      * @param QueryStatReq $req
-     * @return \generalRequest\HttpResponse|null
+     * @return \hwcvod\generalRequest\HttpResponse|null
      */
     public function queryVodStat(QueryStatReq $req){
         return SummaryService::getInstance()->queryVodStat($req,$this);
     }
 
-
     /**
      * 查询Top信息
      * @param QueryTopStatReq $req
-     * @return \generalRequest\HttpResponse
+     * @return \hwcvod\generalRequest\HttpResponse|null
      */
     public function queryTopStat(QueryTopStatReq $req){
         return SummaryService::getInstance()->queryTopStat($req,$this);
@@ -305,7 +304,7 @@ class VodClient{
     /**
      * 查询域名信息
      * @param QueryDomainReq $req
-     * @return \generalRequest\HttpResponse
+     * @return \hwcvod\generalRequest\HttpResponse|null
      */
     public function queryDomainStat(QueryDomainReq $req){
         return SummaryService::getInstance()->queryDomain($req,$this);

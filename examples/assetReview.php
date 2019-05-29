@@ -16,12 +16,14 @@ $vodConfig->setAk(AK);
 $vodConfig->setSk(SK);
 $vodConfig->setProjectId(PID);
 $vodClient = new VodClient($vodConfig);
+
 $req = new AssetReviewReq();
 $review = new Review();
 $review->setInterval(5);
 $review->setPorn(-1);
-$req ->setAssetId('55576e74bfd6d828e8c8d445500bf961');
-$req ->setReview($review);
+
+$req->setAssetId('55576e74bfd6d828e8c8d445500bf961');
+$req->setReview($review);
 
 $rsp = $vodClient->createAssetReviewTask($req);
 echo $rsp->getBody();

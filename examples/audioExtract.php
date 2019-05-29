@@ -16,8 +16,8 @@ $vodConfig->setSk(SK);
 $vodConfig->setProjectId(PID);
 $vodClient = new VodClient($vodConfig);
 $req = new ExtractAudioTaskReq();
-$req ->setAssetId('55576e74bfd6d828e8c8d445500bf961');
-$req ->setFormat('MP3');
+$req->setAssetId('55576e74bfd6d828e8c8d445500bf961');
+$req->setFormat('MP3');
 
 $rsp = $vodClient->extractAudioTask($req);
 echo $rsp->getBody();
