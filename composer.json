@@ -1,0 +1,13 @@
+{
+    "name": "huaweicloud/vod",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cui dongjian",
+            "email": "cuidongjian@ata.net.cn"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
